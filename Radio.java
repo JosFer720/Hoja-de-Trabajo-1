@@ -1,21 +1,22 @@
 public class Radio implements IRadio {
     private String ON;
     private String frequency;
-    private double station;
+    private double stationAm;
+    private double stationFm;
     private double[] buttonListAM;
     private double[] buttonListFM;
 
-    public Radio(boolean ON, String frequency, double station, double[] buttonListAM, double[] buttonListFM){
+    public Radio(boolean ON, String frequency, double stationAm, double stationFm, double[] buttonListAM, double[] buttonListFM){
         this.ON = "On";
         this.frequency = "AM";
-        this.station = 0;
+        this.stationAm = 530;
+        this.stationFm = 87.9;
         this.buttonListAM = new double[12];
         this.buttonListFM = new double[12];
     }
     
     public void saveStation(int buttonId, double station){
-        boolean prove=isAm();
-        if (prove){
+        if (this.isAm()){
             this.buttonListAM[buttonId]=station;
         }
         else{
@@ -42,8 +43,7 @@ public class Radio implements IRadio {
     }
 
     public double selectStation(int buttonId) {
-        boolean prove=isAm();
-        if (prove){
+        if (this.isAm()){
             return this.buttonListAM[buttonId];
         }
         else{
@@ -63,16 +63,35 @@ public class Radio implements IRadio {
     public void switchAMFM() {
         if (this.isAm()){
             this.frequency = "FM";
-            this.station = 87.9;
         }
         else {
             this.frequency = "AM";
-            this.station = 530.0;
         }
     }
 
     public double nextStation() {
-        return this.buttonListAM[2]+this.buttonListFM[14]+this.station;
-    }
-
+        if (this.isOn()){
+            if (this.isAm()){
+                if(this.stationAm>1610) {
+                    this.stationAm=530;
+                    return this.stationAm;
+                }
+                else{
+                    this.stationAm=this.stationAm+10;
+                    return this.stationAm;
+                }
+            }
+            else {
+                if(this.stationFm>107.9){
+                    this.stationFm=87.9;
+                    return this.stationFm;
+                }
+                else{
+                    this.stationFm=this.stationFm + 0.2;
+                    return this.stationFm;
+                }
+            }
+        }
+        return 0;
+}
 }
