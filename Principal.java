@@ -43,7 +43,20 @@ public class Principal {
                             System.out.println("La radio esta apagada");
                         }
                     break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    double newStation = radio.nextStation();
+                    System.out.println("Estacion cambiada a " + newStation);
+                    break;
+                case 6:
+                    System.out.println("Gracias por usar nuestra radio");
+                    System.exit(0);
+                    break;
                 }
-            }
+            } 
+            scanner.close();
         }
     }
