@@ -1,16 +1,16 @@
 public interface IRadio {
 
-    void saveStation(int buttonId, double station);
+    public void saveStation(int buttonId, double station);
 
-    boolean isAm();
+    public boolean isAm();
     
-    boolean isOn();
+    public boolean isOn();
 
-    double selectStation(int buttonId);
+    public double selectStation(int buttonId);
 
-    void switchOnOff();
+    public void switchOnOff();
 
-    void switchAMFM();
+    public void switchAMFM();
 
-    double nextStation();
+    public double nextStation();
 }
