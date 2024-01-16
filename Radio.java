@@ -52,7 +52,12 @@ public class Radio implements IRadio {
     }
 
     public void switchOnOff() {
-
+        if (this.isOn()){
+            this.ON="Off";
+        }
+        else{
+            this.ON="On";
+            }
     }
 
     public void switchAMFM() {
@@ -67,7 +72,7 @@ public class Radio implements IRadio {
     }
 
     public double nextStation() {
-        return this.buttonListAM[2]+this.buttonListFM[14];
+        return this.buttonListAM[2]+this.buttonListFM[14]+this.station;
     }
 
 }
