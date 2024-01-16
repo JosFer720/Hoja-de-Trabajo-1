@@ -42,7 +42,13 @@ public class Radio implements IRadio {
     }
 
     public double selectStation(int buttonId) {
-        return this.station;
+        boolean prove=isAm();
+        if (prove){
+            return this.buttonListAM[buttonId];
+        }
+        else{
+            return this.buttonListFM[buttonId];
+        }    
     }
 
     public void switchOnOff() {
