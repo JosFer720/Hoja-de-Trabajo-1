@@ -1,12 +1,12 @@
 public class Radio implements IRadio {
-    private boolean ON;
+    private String ON;
     private String frequency;
     private double station;
     private double[] buttonListAM;
     private double[] buttonListFM;
 
     public Radio(boolean ON, String frequency, double station, double[] buttonListAM, double[] buttonListFM){
-        this.ON = true;
+        this.ON = "On";
         this.frequency = "AM";
         this.station = 0;
         this.buttonListAM = new double[12];
@@ -33,7 +33,12 @@ public class Radio implements IRadio {
     }
     
     public boolean isOn() {
-        return this.ON;
+        if(this.ON == "On"){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     public double selectStation(int buttonId) {
