@@ -14,6 +14,13 @@ public class Radio implements IRadio {
     }
     
     public void saveStation(int buttonId, double station){
+        boolean prove=isAm();
+        if (prove){
+            this.buttonListAM[buttonId]=station;
+        }
+        else{
+            this.buttonListFM[buttonId] = station;
+        }
     }
 
     public boolean isAm() {
