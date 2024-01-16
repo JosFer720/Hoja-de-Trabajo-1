@@ -51,7 +51,12 @@ public class Radio implements IRadio {
     }
 
     public void switchAMFM() {
-        
+        if (isAm()) {
+            this.frequency = "FM";
+        }
+        else {
+            this.frequency = "AM";
+        }
     }
 
     public double nextStation() {
