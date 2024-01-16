@@ -13,24 +13,37 @@ public class Radio implements IRadio {
         this.buttonListFM = new double[12];
     }
     
-     public void saveStation(int buttonId, double station){
-     }
+    public void saveStation(int buttonId, double station){
+        boolean prove=isAm();
+        if (prove){
+            this.buttonListAM[buttonId]=station;
+        }
+        else{
+            this.buttonListFM[buttonId] = station;
+        }
+    }
 
-     public boolean isAm() {
+    public boolean isAm() {
         if (this.frequency == "AM"){
             return true;
         }
         else {
             return false;
         }
-     }
+    }
     
     public boolean isOn() {
         return this.ON;
     }
 
     public double selectStation(int buttonId) {
-        return this.station;
+        boolean prove=isAm();
+        if (prove){
+            return this.buttonListAM[buttonId];
+        }
+        else{
+            return this.buttonListFM[buttonId];
+        }    
     }
 
     public void switchOnOff() {
@@ -45,4 +58,4 @@ public class Radio implements IRadio {
         return this.buttonListAM[2]+this.buttonListFM[14];
     }
 
- }
+}
