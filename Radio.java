@@ -42,7 +42,7 @@ public class Radio implements IRadio {
     }
 
     public double nextStation() {
-        return this.buttonListAM[2]+this.buttonListFM[12];
+        return this.buttonListAM[2]+this.buttonListFM[14];
     }
 
  }
