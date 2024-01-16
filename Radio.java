@@ -16,22 +16,24 @@ public class Radio implements IRadio {
     }
     
     public void saveStation(int buttonId, double station){
-        if (this.isAm()){
-            this.buttonListAM[buttonId]=station;
-        }
-        else{
-            this.buttonListFM[buttonId] = station;
+        if (this.isOn()) {
+            if (this.isAm()){
+                this.buttonListAM[buttonId]=station;
+            }
+            else{
+                this.buttonListFM[buttonId] = station;
+            }
         }
     }
 
     public boolean isAm() {
-        if (this.frequency == "AM"){
-            return true;
+        if (this.isOn()) {
+            return this.frequency == "AM";
+            }
+            else {
+                return false;
+            }
         }
-        else {
-            return false;
-        }
-    }
     
     public boolean isOn() {
         if(this.ON == "On"){
@@ -43,12 +45,15 @@ public class Radio implements IRadio {
     }
 
     public double selectStation(int buttonId) {
-        if (this.isAm()){
-            return this.buttonListAM[buttonId];
+        if (this.isOn()){
+            if (this.isAm()){
+                return this.buttonListAM[buttonId];
+            }
+            else{
+                return this.buttonListFM[buttonId];
+            }
         }
-        else{
-            return this.buttonListFM[buttonId];
-        }    
+        return 0;  
     }
 
     public void switchOnOff() {
@@ -61,11 +66,13 @@ public class Radio implements IRadio {
     }
 
     public void switchAMFM() {
-        if (this.isAm()){
-            this.frequency = "FM";
-        }
-        else {
-            this.frequency = "AM";
+        if (this.isOn()){
+            if (this.isAm()){
+                this.frequency = "FM";
+            }
+            else {
+                this.frequency = "AM";
+            }
         }
     }
 
@@ -93,5 +100,5 @@ public class Radio implements IRadio {
             }
         }
         return 0;
-}
+    }
 }
