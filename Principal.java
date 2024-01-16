@@ -19,8 +19,31 @@ public class Principal {
             option = scanner.nextInt();
 
             switch (option) {
-
+                case 1:
+                    radio.switchOnOff();
+                        if (radio.isOn()) {
+                            System.out.println("Radio encendida");
+                        }
+                        else {
+                            System.out.println("Radio apagada");
+                            }
+                    break;
+                case 2:
+                    radio.switchAMFM();
+                        if (radio.isOn()) {
+                            System.out.println("Frecuencia cambiada a ");
+                            if (radio.isAm()){
+                                System.out.println("AM");
+                            }
+                            else {
+                                System.out.println("FM");
+                            }
+                        }
+                        else {
+                            System.out.println("La radio esta apagada");
+                        }
+                    break;
+                }
             }
         }
     }
-}
