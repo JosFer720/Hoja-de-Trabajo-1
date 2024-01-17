@@ -38,7 +38,7 @@ public class Radio implements IRadio {
      * @param buttonListFM Lista de estaciones guardadas para modo FM.
      */
     public Radio(boolean ON, String frequency, double stationAm, double stationFm, double[] buttonListAM, double[] buttonListFM) {
-        this.ON = "On";
+        this.ON = "Off";
         this.frequency = "AM";
         this.stationAm = 530;
         this.stationFm = 87.9;

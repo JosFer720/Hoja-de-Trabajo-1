@@ -20,7 +20,7 @@ public class Pruebas{
     @Test
     public void testNextStation(){
         Radio radio = new Radio(true, "AM", 530, 87.9, new double[12], new double[12]);
-        // radio.switchOnOff();
+        radio.switchOnOff();
         assertEquals(540, radio.nextStation(), 0.0);
         assertEquals(550, radio.nextStation(), 0.0);
         assertEquals(560, radio.nextStation(), 0.0);
