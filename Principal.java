@@ -2,7 +2,7 @@ import java.util.Scanner;
 public class Principal {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Radio radio = new Radio(false, "AM", 530.0, 87.9, new double[12], new double[12]);
+        Radio radio = new Radio(true, "AM", 530.0, 87.9, new double[12], new double[12]);
 
         int option = -1;
 

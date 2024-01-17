@@ -1,10 +1,10 @@
 public class Radio implements IRadio {
-    private String ON;
+    public String ON;
     private String frequency;
-    private double stationAm;
+    public double stationAm;
     private double stationFm;
-    private double[] buttonListAM;
-    private double[] buttonListFM;
+    public double[] buttonListAM;
+    public double[] buttonListFM;
 
     public Radio(boolean ON, String frequency, double stationAm, double stationFm, double[] buttonListAM, double[] buttonListFM){
         this.ON = "Of";
@@ -88,24 +88,18 @@ public class Radio implements IRadio {
     public double nextStation() {
         if (this.isOn()){
             if (this.isAm()){
+                this.stationAm+=10;
                 if(this.stationAm>1610) {
                     this.stationAm=530;
-                    return this.stationAm;
                 }
-                else{
-                    this.stationAm=this.stationAm+10;
-                    return this.stationAm;
+                return this.stationAm;
                 }
-            }
             else {
+                this.stationFm+=0.2;
                 if(this.stationFm>107.9){
                     this.stationFm=87.9;
-                    return this.stationFm;
                 }
-                else{
-                    this.stationFm=this.stationFm + 0.2;
-                    return Math.round(this.stationFm * 10.0)/10.0 ;
-                }
+                return Math.round(this.stationFm * 10.0)/10.0 ;
             }
         }
         else{
