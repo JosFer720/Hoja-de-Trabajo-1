@@ -1,16 +1,58 @@
+/**
+ * Fernando Ruiz 23065
+ * Erick Guerra 23208
+ * ALGORITMOS Y ESTRUCTURAS DE DATOS 2016
+ */
+
+/**
+ * Interfaz que define los métodos para operar una radio.
+ */
 public interface IRadio {
 
-    public void saveStation(int buttonId, double station);
+    /**
+     * Guarda la estación actual en el botón especificado.
+     *
+     * @param buttonId Número del botón (0-11) en el que se guardará la estación.
+     * @param station Estación actual a ser guardada.
+     */
+    void saveStation(int buttonId, double station);
 
-    public boolean isAm();
-    
-    public boolean isOn();
+    /**
+     * Verifica si la radio está en modo AM.
+     *
+     * @return true si la radio está en modo AM, false si está en modo FM.
+     */
+    boolean isAm();
 
-    public double selectStation(int buttonId);
+    /**
+     * Verifica si la radio está encendida.
+     *
+     * @return true si la radio está encendida, false si está apagada.
+     */
+    boolean isOn();
 
-    public void switchOnOff();
+    /**
+     * Selecciona la estación guardada en el botón especificado.
+     *
+     * @param buttonId Número del botón (0-11) que contiene la estación a seleccionar.
+     * @return La estación guardada en el botón especificado.
+     */
+    double selectStation(int buttonId);
 
-    public void switchAMFM();
+    /**
+     * Enciende o apaga la radio.
+     */
+    void switchOnOff();
 
-    public double nextStation();
+    /**
+     * Cambia la frecuencia de la radio entre AM y FM.
+     */
+    void switchAMFM();
+
+    /**
+     * Cambia a la siguiente estación disponible dependiendo del modo (AM/FM).
+     *
+     * @return La nueva estación seleccionada.
+     */
+    double nextStation();
 }

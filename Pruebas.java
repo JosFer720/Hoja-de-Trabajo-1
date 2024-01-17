@@ -1,3 +1,9 @@
+/**
+ * Fernando Ruiz 23065
+ * Erick Guerra 23208
+ * ALGORITMOS Y ESTRUCTURAS DE DATOS 2016
+ */
+
 import org.junit.*;
 import static org.junit.Assert.assertEquals;
 
