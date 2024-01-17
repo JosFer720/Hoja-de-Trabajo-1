@@ -1,8 +1,8 @@
 public class Radio implements IRadio {
     private String ON;
     private String frequency;
-    private double stationAm;
-    private double stationFm;
+    public double stationAm;
+    public double stationFm;
     private double[] buttonListAM;
     private double[] buttonListFM;
 
@@ -17,10 +17,10 @@ public class Radio implements IRadio {
     
     public void saveStation(int buttonId, double station){
         if (this.isAm()){
-            this.buttonListAM[buttonId]=station;
+            this.buttonListAM[buttonId] = stationAm;
         }
         else{
-            this.buttonListFM[buttonId] = station;
+            this.buttonListFM[buttonId] = stationFm;
         }
     }
 

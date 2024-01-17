@@ -44,8 +44,40 @@ public class Principal {
                         }
                     break;
                 case 3:
+                    System.out.println("Ingrese el número de botón (0-11): ");
+                    int buttonId = scanner.nextInt();
+
+                    if (buttonId >= 0 && buttonId < 12) {
+                        if (radio.isOn()) {
+                            double currentStation;
+                            if (radio.isAm()) {
+                                currentStation = radio.stationAm;
+                            } else {
+                                currentStation = radio.stationFm;
+                            }
+                            radio.saveStation(buttonId, currentStation);
+                            System.out.println("Estacion actual guardada en el boton " + buttonId);
+                        } else {
+                            System.out.println("La radio esta apagada.");
+                        }
+                    } else {
+                        System.out.println("Numero de boton no valido.");
+                    }
                     break;
                 case 4:
+                    System.out.println("Ingrese el numero de botón (0-11): ");
+                    int selectedButton = scanner.nextInt();
+                
+                    if (selectedButton >= 0 && selectedButton < 12) {
+                        if (radio.isOn()) {
+                            double selectedStation = radio.selectStation(selectedButton);
+                            System.out.println("Estacion seleccionada del boton " + selectedButton + ": " + selectedStation);
+                        } else {
+                            System.out.println("La radio esta apagada.");
+                        }
+                    } else {
+                        System.out.println("Numero de boton no valido");
+                    }
                     break;
                 case 5:
                     double newStation = radio.nextStation();
