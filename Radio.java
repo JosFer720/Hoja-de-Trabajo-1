@@ -2,7 +2,7 @@ public class Radio implements IRadio {
     public String ON;
     private String frequency;
     public double stationAm;
-    private double stationFm;
+    public double stationFm;
     public double[] buttonListAM;
     public double[] buttonListFM;
 
