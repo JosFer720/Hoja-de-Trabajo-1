@@ -10,10 +10,10 @@
 public class Radio implements IRadio {
 
     // Estado de encendido/apagado de la radio
-    private String ON;
+    public String ON;
 
     // Frecuencia actual de la radio (AM/FM)
-    private String frequency;
+    public String frequency;
 
     // Estación actual en modo AM
     public double stationAm;
@@ -53,7 +53,7 @@ public class Radio implements IRadio {
      * @param station Estación actual a ser guardada.
      */
     public void saveStation(int buttonId, double station) {
-        if (this.isAm()) {
+        if (this.isAM()) {
             this.buttonListAM[buttonId] = stationAm;
         } else {
             this.buttonListFM[buttonId] = stationFm;
@@ -65,7 +65,7 @@ public class Radio implements IRadio {
      *
      * @return true si la radio está en modo AM, false si está en modo FM.
      */
-    public boolean isAm() {
+    public boolean isAM() {
         return this.frequency.equals("AM");
     }
 
@@ -85,7 +85,7 @@ public class Radio implements IRadio {
      * @return La estación guardada en el botón especificado.
      */
     public double selectStation(int buttonId) {
-        if (this.isAm()) {
+        if (this.isAM()) {
             return this.buttonListAM[buttonId];
         } else {
             return this.buttonListFM[buttonId];
@@ -107,7 +107,7 @@ public class Radio implements IRadio {
      * Cambia la frecuencia de la radio entre AM y FM.
      */
     public void switchAMFM() {
-        if (this.isAm()) {
+        if (this.isAM()) {
             this.frequency = "FM";
         } else {
             this.frequency = "AM";
@@ -121,7 +121,7 @@ public class Radio implements IRadio {
      */
     public double nextStation() {
         if (this.isOn()) {
-            if (this.isAm()) {
+            if (this.isAM()) {
                 if (this.stationAm > 1610) {
                     this.stationAm = 530;
                     return this.stationAm;

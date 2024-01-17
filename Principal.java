@@ -56,7 +56,7 @@ public class Principal {
                     radio.switchAMFM();
                     if (radio.isOn()) {
                         System.out.print("Frecuencia cambiada a ");
-                        if (radio.isAm()) {
+                        if (radio.isAM()) {
                             System.out.println("AM");
                         } else {
                             System.out.println("FM");
@@ -73,7 +73,7 @@ public class Principal {
                     if (buttonId >= 0 && buttonId < 12) {
                         if (radio.isOn()) {
                             double currentStation;
-                            if (radio.isAm()) {
+                            if (radio.isAM()) {
                                 currentStation = radio.stationAm;
                             } else {
                                 currentStation = radio.stationFm;

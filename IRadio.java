@@ -22,7 +22,7 @@ public interface IRadio {
      *
      * @return true si la radio está en modo AM, false si está en modo FM.
      */
-    boolean isAm();
+    boolean isAM();
 
     /**
      * Verifica si la radio está encendida.
